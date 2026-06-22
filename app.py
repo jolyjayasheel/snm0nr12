@@ -13,6 +13,8 @@ excel.init_excel(app)
 app.secret_key='code1234'
 app.config
 app.config['SESSION_TYPE']='filesystem'
+app.config['SERVER_NAME']='54.79.12.7'
+app.config['PREFERRED_URL_SCHEME']='http'
 Session(app)
 @app.route('/',methods=['GET'])
 def home():
