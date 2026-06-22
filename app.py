@@ -7,10 +7,11 @@ from cmail import send_mail
 from stoken import endata,dndata
 from mysql.connector import (connection)
 import re
-mydb=connection.MySQLConnection(user='root',host='localhost',password='Jolly@312004',database='snm0nr12')
+mydb=connection.MySQLConnection(user='flaskuser',host='localhost',password='password',database='flaskdb')
 app=Flask(__name__)
 excel.init_excel(app) 
 app.secret_key='code1234'
+app.config
 app.config['SESSION_TYPE']='filesystem'
 Session(app)
 @app.route('/',methods=['GET'])
@@ -451,5 +452,5 @@ def newpassword(data):
                 return jsonify({'status':'success','message':'ok'})
     return render_template('newpassword.html',data=data)
 if __name__=='__main__':
-    app.run(debug=True,use_reloader=True)
+    app.run()
  
